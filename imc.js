@@ -1,40 +1,38 @@
 const calcular = document.getElementById("calcular");
+const resultado = document.getElementById("resultado");
 
 function imc() {
   const nome = document.getElementById("nome").value;
   const altura = document.getElementById("altura").value;
   const peso = document.getElementById("peso").value;
-  const resultado = document.getElementById("resultado");
 
   if (nome !== "" && altura !== "" && peso !== "") {
-    const valorImc = (peso / (altura * altura)).toFixed(1);
+    let valorImc = peso / (altura * altura);
 
     let classificacao = "";
 
-    switch (true) {
-      case valorImc < 18.5:
-        classificacao = "Abaixo do peso";
-        break;
-      case valorImc < 24.9:
-        classificacao = "Peso normal";
-        break;
-      case valorImc < 29.9:
-        classificacao = "Sobrepeso";
-        break;
-      case valorImc < 34.9:
-        classificacao = "Obesidade grau 1";
-        break;
-      case valorImc < 39.9:
-        classificacao = "Obesidade grau 2";
-        break;
-      default:
-        classificacao = "Obesidade grau 3";
-        break;
+    if (valorImc < 16) {
+      classificacao = "magreza grave";
+    } else if (valorImc >= 16 && valorImc < 17) {
+      classificacao = "magreza moderada";
+    } else if (valorImc >= 17 && valorImc < 18.5) {
+      classificacao = "magreza leve";
+    } else if (valorImc >= 18.5 && valorImc < 25) {
+      classificacao = "saudavel";
+    } else if (valorImc >= 25 && valorImc < 30) {
+      classificacao = "sobrepeso";
+    } else if (valorImc >= 30 && valorImc < 35) {
+      classificacao = "obesidade grau I";
+    } else if (valorImc >= 35 && valorImc < 40) {
+      classificacao = "obesidade grau II";
+    } else {
+      classificacao = "obesidade grau III";
     }
-
-    resultado.textContent = `${nome}, seu IMC é ${valorImc}, você está ${classificacao}`;
+    resultado.textContent = `${nome}, seu imc é ${valorImc.toFixed(
+      2
+    )}, voce esta com ${classificacao}`;
   } else {
-    resultado.textContent = "preencha todos os camopos";
+    resultado.textContent = `Preencha todos os campos`;
   }
 }
 
