@@ -12,25 +12,23 @@ function imc() {
     let classificacao = "";
 
     if (valorImc < 16) {
-      classificacao = "magreza grave";
+      classificacao = "Magreza grave";
     } else if (valorImc >= 16 && valorImc < 17) {
-      classificacao = "magreza moderada";
+      classificacao = "Magreza moderada";
     } else if (valorImc >= 17 && valorImc < 18.5) {
-      classificacao = "magreza leve";
+      classificacao = "Magreza leve";
     } else if (valorImc >= 18.5 && valorImc < 25) {
-      classificacao = "saudavel";
+      classificacao = "Saudavel";
     } else if (valorImc >= 25 && valorImc < 30) {
-      classificacao = "sobrepeso";
+      classificacao = "Sobrepeso";
     } else if (valorImc >= 30 && valorImc < 35) {
-      classificacao = "obesidade grau I";
+      classificacao = "Obesidade grau I";
     } else if (valorImc >= 35 && valorImc < 40) {
-      classificacao = "obesidade grau II";
+      classificacao = "Obesidade grau II";
     } else {
-      classificacao = "obesidade grau III";
+      classificacao = "Obesidade grau III";
     }
-    resultado.textContent = `${nome}, seu imc é ${valorImc.toFixed(
-      2
-    )}, voce esta com ${classificacao}`;
+    resultado.textContent = `${nome}, seu imc é ${valorImc.toFixed(2)}, sua classificacao: ${classificacao}`;
   } else {
     resultado.textContent = `Preencha todos os campos`;
   }
